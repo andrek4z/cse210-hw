@@ -50,8 +50,6 @@ class Program
             }
             else if (number == 3)
             {
-                Console.Write("What is the name of the file? ");
-                string namefile = Console.ReadLine();
                 List<Journal> newMessage = ReadFromFile();
                 foreach (Journal m in newMessage)
                 {
@@ -61,16 +59,19 @@ class Program
             }
             else if (number == 4)
             {
-                Console.Write("What is the filename? ");
-                string name = Console.ReadLine();
                 SaveToFile(message);
             }
         }
+
+        Console.WriteLine("Thanks for typing in your journal one more day");
     }
 
     public static void SaveToFile(List<Journal> message)
     {
-        string filename = "Journal.txt";
+        Console.Write("What is the filename? ");
+        string name = Console.ReadLine();
+
+        string filename = $"{name}";
 
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
@@ -84,8 +85,11 @@ class Program
 
     public static List<Journal> ReadFromFile()
     {
+        Console.Write("What is the name of the file? ");
+        string namefile = Console.ReadLine();
+
         List<Journal> message = new List<Journal>();
-        string filename = "Journal.txt";
+        string filename = $"{namefile}";
         string[] lines = System.IO.File.ReadAllLines(filename);
         foreach (string line in lines)
         {
