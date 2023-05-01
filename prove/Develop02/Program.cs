@@ -7,8 +7,7 @@ class Program
     static void Main(string[] args)
     {
         int number = 0;
-        List<Journal> message = new List<Journal>();
-
+        
         while (number != 5)
         {
             Console.WriteLine("");
@@ -20,9 +19,12 @@ class Program
             Console.WriteLine("5. Quit");
             Console.Write("What would you like to do? ");
             number = int.Parse(Console.ReadLine());
+            List<Journal> message = new List<Journal>();
 
             if (number == 1)
             {
+                DateTime theCurrentTime = DateTime.Now;
+                string dateText = theCurrentTime.ToShortDateString();
                 string filename = "Questions.txt";
                 string[] lines = System.IO.File.ReadAllLines(filename);
                 Random rand = new Random();
@@ -30,18 +32,39 @@ class Program
                 Console.WriteLine(lines[randomIndex]);
                 Console.Write("< ");
                 string diary = Console.ReadLine();
+
+                Journal m = new Journal();
+                m._date = dateText;
+                m._question = lines[randomIndex];
+                m._content = diary;
+                
+                message.Add(m);
+
+                foreach(Journal i in message)
+                {
+                    Console.WriteLine($"Date: {m._date} ~ Prompt: {m._question}");
+                    Console.WriteLine($"{m._content}");
+                }
             }
             else if (number == 2)
             {
-                
+                //
             }
             else if (number == 3)
             {
-
+                List<Journal> newMessage = ReadFromFile();
+                foreach (Journal m in newMessage)
+                {
+                    Console.WriteLine($"{m._question}");
+                    Console.WriteLine($"{m._content}");
+                }
             }
             else if (number == 4)
             {
-
+                
+                Console.Write("What is the filename? ");
+                string name = Console.ReadLine();
+                //SaveToFile(message);
             }
         }
     }
@@ -54,6 +77,7 @@ class Program
         {
             foreach (Journal m in message)
             {
+                outputFile.WriteLine($"{m._question}");
                 outputFile.WriteLine($"{m._content}");
             }
         }
@@ -63,7 +87,11 @@ class Program
     {
         List<Journal> message = new List<Journal>();
         string filename = "Journal.txt";
-
+        string[] lines = System.IO.File.ReadAllLines(filename);
+        foreach (string line in lines)
+        {
+            Console.WriteLine(line);
+        }
         return message;
     }
 }
