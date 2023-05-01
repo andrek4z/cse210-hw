@@ -23,6 +23,8 @@ class Program
             
             if (number == 1)
             {
+                // I added the datetime everytime the user type, so everytime the user type something new
+                // The program is going to record the date that the user add something new to the Journal.
                 DateTime theCurrentTime = DateTime.Now;
                 string dateText = theCurrentTime.ToShortDateString();
                 string filename = "Questions.txt";
@@ -62,7 +64,8 @@ class Program
                 SaveToFile(message);
             }
         }
-
+        // When the Program finish this message is going to apper to motivate the user to
+        // type something new the next day.
         Console.WriteLine("Thanks for typing in your journal one more day");
     }
 
