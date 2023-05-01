@@ -25,6 +25,9 @@ class Program
             {
                 string filename = "Questions.txt";
                 string[] lines = System.IO.File.ReadAllLines(filename);
+                Random rand = new Random();
+                int randomIndex = rand.Next(lines.Length);
+                Console.WriteLine(lines[randomIndex]);
                 Console.Write("< ");
                 string diary = Console.ReadLine();
             }
