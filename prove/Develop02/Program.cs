@@ -7,7 +7,8 @@ class Program
     static void Main(string[] args)
     {
         int number = 0;
-        
+        List<Journal> message = new List<Journal>();
+
         while (number != 5)
         {
             Console.WriteLine("");
@@ -19,8 +20,7 @@ class Program
             Console.WriteLine("5. Quit");
             Console.Write("What would you like to do? ");
             number = int.Parse(Console.ReadLine());
-            List<Journal> message = new List<Journal>();
-
+            
             if (number == 1)
             {
                 DateTime theCurrentTime = DateTime.Now;
@@ -39,32 +39,31 @@ class Program
                 m._content = diary;
                 
                 message.Add(m);
-
-                foreach(Journal i in message)
+            }
+            else if (number == 2)
+            {
+                foreach(Journal m in message)
                 {
                     Console.WriteLine($"Date: {m._date} ~ Prompt: {m._question}");
                     Console.WriteLine($"{m._content}");
                 }
             }
-            else if (number == 2)
-            {
-                //
-            }
             else if (number == 3)
             {
+                Console.Write("What is the name of the file? ");
+                string namefile = Console.ReadLine();
                 List<Journal> newMessage = ReadFromFile();
                 foreach (Journal m in newMessage)
                 {
-                    Console.WriteLine($"{m._question}");
+                    Console.WriteLine($"Date: {m._date} ~ Prompt: {m._question}");
                     Console.WriteLine($"{m._content}");
                 }
             }
             else if (number == 4)
             {
-                
                 Console.Write("What is the filename? ");
                 string name = Console.ReadLine();
-                //SaveToFile(message);
+                SaveToFile(message);
             }
         }
     }
@@ -77,7 +76,7 @@ class Program
         {
             foreach (Journal m in message)
             {
-                outputFile.WriteLine($"{m._question}");
+                outputFile.WriteLine($"Date: {m._date} ~ Prompt: {m._question}");
                 outputFile.WriteLine($"{m._content}");
             }
         }
