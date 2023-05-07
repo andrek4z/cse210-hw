@@ -19,7 +19,12 @@ public class Reference
 
 }
 
-public class Word
+public class Text
 {
+    private string _text;
 
+    public  string GetText()
+    {
+        return _text;
+    }
 }
