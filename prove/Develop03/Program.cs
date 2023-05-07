@@ -15,11 +15,14 @@ class Program
         string answer = "";
         while (answer != "quit")
         {
-            Console.WriteLine($"{r.GetReference()}: {text}.");
-            Console.WriteLine();
-            Console.WriteLine("Press enter to continue or type 'quit' to finish: ");
-            answer = Console.ReadLine();
             Console.Clear();
+            if (answer == "")
+            {
+                Console.WriteLine($"{r.GetReference()}: {text}.");
+                Console.WriteLine();
+                Console.WriteLine("Press enter to continue or type 'quit' to finish: ");
+                answer = Console.ReadLine();
+            }
         }
     }
 }
