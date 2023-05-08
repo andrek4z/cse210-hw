@@ -11,6 +11,7 @@ class Program
         r.SetReference(reference);
         Console.Write("Please enter the text of the scripture you want to memorize: ");
         string text = Console.ReadLine();
+        string[] textList = text.Split(" ");
         Console.Clear();
         string answer = "";
         while (answer != "quit")
@@ -22,6 +23,10 @@ class Program
                 Console.WriteLine();
                 Console.WriteLine("Press enter to continue or type 'quit' to finish: ");
                 answer = Console.ReadLine();
+                Random rand = new Random();
+                int randomIndex = rand.Next(textList.Length);
+                textList[randomIndex] = "____";
+                text = string.Join(" ",textList);
             }
         }
     }

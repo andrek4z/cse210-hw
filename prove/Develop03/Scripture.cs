@@ -1,6 +1,6 @@
 public class Scripture
 {
-
+    
 }
 
 public class Reference
