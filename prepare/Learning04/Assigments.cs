@@ -8,7 +8,7 @@ public class Assignment
         _studentName = studentName;
         _topic = topic;
     }
-    
+
     public string GetStudentName()
     {
         return _studentName;

@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.Clear();
         Assignment a1 = new Assignment("Samuel Bennett", "Multiplication");
         Console.WriteLine(a1.GetSummary());
 
