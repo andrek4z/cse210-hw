@@ -114,7 +114,12 @@ class Program
             else if (choice == "4")
             {
                 Console.WriteLine();
-                goalslist = ReadFromFile();
+                List<string> newgoalslist = ReadFromFile();
+                foreach(string n in newgoalslist)
+                {
+                    string[] parts = n.Split(":");
+                    goalslist.Add(n);
+                }
             }
             else if (choice == "5")
             {
