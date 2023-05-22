@@ -24,6 +24,6 @@ public class ChecklistGoal : TypeGoal
         string name = GetName();
         string description = GetDescription();
         int amount = GetAmount();
-        return $"Checklist Goal:{name},{description},{amount},{_bonus},{_times},{_timescompleted}";
+        return $"Checklist Goal:{name},{description},{amount},{_bonus},{_times},{_timescompleted},{_completed}";
     }
 }

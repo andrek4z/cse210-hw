@@ -12,6 +12,6 @@ public class EternalGoal : TypeGoal
         string name = GetName();
         string description = GetDescription();
         int amount = GetAmount();
-        return $"Eternal Goal:{name},{description},{amount}";
+        return $"Eternal Goal:{name},{description},{amount},{_completed}";
     }
 }
