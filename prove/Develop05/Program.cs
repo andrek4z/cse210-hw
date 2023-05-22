@@ -109,7 +109,7 @@ class Program
             else if (choice == "3")
             {
                 Console.WriteLine();
-                SaveToFile(goalslist);
+                SaveToFile(goalsfile);
             }
             else if (choice == "4")
             {
